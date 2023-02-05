@@ -27,6 +27,51 @@ char	*get_next_line(int fd)
 	return (str);
 }
 
+char    *read_function(int fd, char *red)
+{
+    char    *ptr;
+    char    *rtn;
+    int byte;
+
+    ptr = malloc((BUFFER_SIZE + 1) * sizeof(char));
+    if (!ptr)
+        return (0);
+    byte = 1;
+    rtn = ft_strchr(red, '\0');
+    while (!rtn && byte != 0)
+    {
+        byte = read(fd, ptr, BUFFER_SIZE);
+        if (byte == -1)
+		{
+			free(ptr);
+			free(red);
+			return (0);
+		}
+		ptr[byte] = '\0';
+		red = ft_strjoin(red, ptr);
+    }
+	free(ptr);
+	return (red);    
+}
+
+char	*apart_line(char *red)
+{
+	char	*ptr;
+	int		i;
+
+	i = 0;
+	if (!*(red + i))
+		return (0);
+	while (red[i] != '\n' && red[i] != '\0')
+		i++;
+	if (red[i] == '\n')
+		ptr = ft_substr(red, 0, i + 1);
+	else
+		ptr = ft_substr(red, 0, i);
+	if (!ptr)
+		return (0);
+	return (ptr);
+}
 char	*trim(char *red)
 {
 	char	*temp;
@@ -38,56 +83,12 @@ char	*trim(char *red)
 	if (!red[i])
 	{
 		free(red);
-		return (NULL);
+		return (0);
 	}
 	i++;
 	temp = ft_substr(red, i, (ft_strlen(red) - i));
 	if (!temp)
-		return (NULL);
+		return (0);
 	free(red);
 	return (temp);
-}
-
-char	*apart_line(char *red)
-{
-	char	*str;
-	int		i;
-
-	i = 0;
-	if (!*(red + i))
-		return (NULL);
-	while (red[i] != '\n' && red[i] != '\0')
-		i++;
-	if (red[i] == '\n')
-		str = ft_substr(red, 0, i + 1);
-	else
-		str = ft_substr(red, 0, i);
-	if (!str)
-		return (NULL);
-	return (str);
-}
-
-char	*read_function(int fd, char *red)
-{
-	char	*str;
-	int		eof;
-
-	str = malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
-	eof = 1;
-	while (!ft_strchr(red, '\n') && eof != 0)
-	{
-		eof = read(fd, str, BUFFER_SIZE);
-		if (eof == -1)
-		{
-			free(str);
-			free(red);
-			return (NULL);
-		}
-		str[eof] = '\0';
-		red = ft_strjoin(red, str);
-	}
-	free(str);
-	return (red);
 }
