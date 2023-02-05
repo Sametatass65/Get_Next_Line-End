@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aatas < aatas@student.42istanbul.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/04 19:00:31 by marvin            #+#    #+#             */
-/*   Updated: 2023/02/04 19:00:31 by marvin           ###   ########.fr       */
+/*   Created: 2023/02/05 16:48:00 by aatas             #+#    #+#             */
+/*   Updated: 2023/02/05 16:48:00 by aatas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@
 
 unsigned int	ft_strlen(char *ptr);
 char			*ft_strchr(char *s, int c);
-char			*ft_strdup(char *s1);
 char			*ft_substr(char *s, unsigned int start, unsigned int len);
 char			*ft_strjoin(char *s1, char *s2);
-
+char	        *get_next_line(int fd);
+char            *read_function(int fd, char *red);         
+char	        *apart_line(char *red);
+char	        *trim(char *red);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: aatas < aatas@student.42istanbul.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/04 19:00:45 by marvin            #+#    #+#             */
-/*   Updated: 2023/02/04 19:00:45 by marvin           ###   ########.fr       */
+/*   Created: 2023/02/05 16:48:16 by aatas             #+#    #+#             */
+/*   Updated: 2023/02/05 16:48:16 by aatas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,86 +85,3 @@ char    *ft_strjoin(char *s1, char *s2)
     free(s1);
     return (ptr);
 }
-
-char    *ft_strdup(char *s1)
-{
-    char    *ptr;
-    int    i;
-
-    i = -1;
-    ptr = malloc((ft_strlen(s1) + 1) * sizeof(char)); 
-    if (!ptr)
-        return (0);
-    while (s1[++i])
-        ptr[i] = s1[i];
-    ptr[i] = '\0';
-    return (ptr);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
