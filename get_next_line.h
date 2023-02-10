@@ -6,15 +6,15 @@
 /*   By: aatas <aatas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 16:48:00 by aatas             #+#    #+#             */
-/*   Updated: 2023/02/10 09:05:19 by aatas            ###   ########.fr       */
+/*   Updated: 2023/02/10 10:33:02 by aatas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
-#define GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-#include <unistd.h>
-#include <stdlib.h>
+# include <unistd.h>
+# include <stdlib.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
