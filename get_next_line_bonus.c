@@ -6,7 +6,7 @@
 /*   By: aatas <aatas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 08:56:24 by aatas             #+#    #+#             */
-/*   Updated: 2023/02/10 08:56:44 by aatas            ###   ########.fr       */
+/*   Updated: 2023/02/10 13:47:43 by aatas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,13 @@ char	*get_next_line(int fd)
 char	*read_function(int fd, char *red)
 {
 	char	*ptr;
-	char	*rtn;
 	int		byte;
 
 	ptr = malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!ptr)
 		return (0);
 	byte = 1;
-	rtn = ft_strchr(red, '\0');
-	while (!rtn && byte != 0)
+	while (!ft_strchr(red, '\0') && byte != 0)
 	{
 		byte = read(fd, ptr, BUFFER_SIZE);
 		if (byte == -1)
