@@ -6,7 +6,7 @@
 /*   By: aatas <aatas@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 08:56:24 by aatas             #+#    #+#             */
-/*   Updated: 2023/02/10 13:47:43 by aatas            ###   ########.fr       */
+/*   Updated: 2023/02/10 13:52:10 by aatas            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*read_function(int fd, char *red)
 	if (!ptr)
 		return (0);
 	byte = 1;
-	while (!ft_strchr(red, '\0') && byte != 0)
+	while (!ft_strchr(red, '\n') && byte != 0)
 	{
 		byte = read(fd, ptr, BUFFER_SIZE);
 		if (byte == -1)
